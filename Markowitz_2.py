@@ -74,6 +74,16 @@ class MyPortfolio:
         """
         TODO: Complete Task 4 Below
         """
+        for i in range(len(self.returns)):
+            weight = []
+            for j, asset in enumerate(assets):
+                if self.returns[asset].iloc[i] > 0:
+                    weight.append(1)
+                else:
+                    weight.append(0)
+            if sum(weight) != 0:
+                for j, asset in enumerate(assets):
+                    self.portfolio_weights[asset].iloc[i] = weight[j] / sum(weight)
 
         """
         TODO: Complete Task 4 Above
